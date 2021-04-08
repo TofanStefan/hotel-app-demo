@@ -2,5 +2,5 @@ const path = require('path')
 
 module.exports = {
 
-  outputDir: path.resolve(__dirname, '../server2/public')
+  outputDir: path.resolve(__dirname, '../serverCristina/public')
 }

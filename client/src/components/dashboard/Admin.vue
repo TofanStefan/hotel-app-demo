@@ -3,8 +3,8 @@
     <div  class="container m-auto content-area p-0">
 
       <div class="d-flex justify-content-center">
-        <Menu> </Menu>
-      <div  class="container-fluid" ref="test" @click="setOpacityHigh">
+        <Menu role="Admin"> </Menu>
+      <div  class="container-fluid" >
        <router-view/>
       </div>
     </div>

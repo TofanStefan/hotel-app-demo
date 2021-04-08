@@ -14,6 +14,6 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         },
         
-    });
+    },{updatedAt: false,createdAt:false});
     return Role;
 }

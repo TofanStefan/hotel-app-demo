@@ -4,6 +4,9 @@ import AvailableRooms from '../views/AvailableRooms.vue'
 import DashBoard from '../views/DashBoard.vue'
 import Profile from '../views/Profile.vue'
 import Rooms from '../views/Rooms.vue'
+import Accounts from '../views/Accounts.vue'
+import Reservations from '../views/Reservations.vue'
+import myReservations from '../views/MyReservations'
 
 const routes = [
   {
@@ -27,6 +30,26 @@ const routes = [
       name: 'rooms',
       component: Rooms,
       path: 'rooms'
+    },
+    {
+      name: 'accounts',
+      component: Accounts,
+      path: 'accounts'
+    },
+    {
+      name: 'reservations',
+      component: Reservations,
+      path: 'reservations'
+    },
+    {
+      name: 'my-reservations',
+      component: myReservations,
+      path: 'my-reservations'
+    },
+    {
+      name: 'available-rooms',
+      component: AvailableRooms,
+      path: 'available-rooms'
     }
     ]
   }

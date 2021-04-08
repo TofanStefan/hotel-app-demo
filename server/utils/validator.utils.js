@@ -8,8 +8,10 @@ exports.validate = (req, res, next) => {
         if (req.file) {
             fs.unlinkSync(req.file.path);
         }
-        const err = errors.array().map(object => {return  {msg: `${object.param}: ${object.msg}`}});
-        res.status(422).json({ errors: err});
+        const extractedErrors = []
+  errors.array({ onlyFirstError: true }).map(err => extractedErrors.push({ [err.param]: err.msg }));
+        //const err = errors.array().map(object => {return  {msg: `${object.param}: ${object.msg}`}});
+        res.status(422).json({ errors: extractedErrors});
         return;
     }
     next();

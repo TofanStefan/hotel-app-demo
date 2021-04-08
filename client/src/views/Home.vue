@@ -49,6 +49,9 @@ export default {
     }
   },
   methods: {
+
+    // axios requests
+
     // navbar scroll to the element
     scroll (id) {
       // eslint-disable-next-line no-undef
@@ -69,6 +72,11 @@ export default {
       if (event.target.tagName !== 'BUTTON') {
         this.disableRegister()
       }
+    }
+  },
+  mounted () {
+    if (this.$route.query.login) {
+      this.onRegisterClick()
     }
   }
 }

@@ -1,16 +1,36 @@
 <template>
 
   <div class="dashboard d-flex">
-      <Admin></Admin>
+      <Admin  v-if="user.roleId===1"></Admin>
+      <Guest v-if="user.roleId===2"></Guest>
 
   </div>
 
 </template>
 <script>
 import Admin from '../components/dashboard/Admin.vue'
+import Guest from '../components/dashboard/Guest.vue'
+import axios from 'axios'
 export default {
+  data () {
+    return {
+      user: {
+        roleId: 0
+      }
+
+    }
+  },
   components: {
-    Admin
+    Admin,
+    Guest
+  },
+  async mounted () {
+    if (!localStorage.getItem('token')) { this.$router.push('/') } else {
+      const res = await axios.get('/api/user/getUser', {
+        headers: { token: localStorage.getItem('token') }
+      })
+      this.user = res.data
+    }
   }
 
 }
